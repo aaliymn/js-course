@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors!</title>
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <button
+      onclick="
+    const compSelect = Math.floor(Math.random() * 3);
+    if (compSelect === 0){;
+        alert('The computer has picked Rock too, Tie!');
+    } else if (compSelect === 1) {;
+        alert('The computer has picked Paper, You lose!');
+    } else if (compSelect === 2) {
+        alert('The computer has picked Scissors, You win!');
+    };"
+    >
+      Rock
+    </button>
+    <button
+      onclick="
+        const compSelect = Math.floor(Math.random() * 3);
+        if (compSelect === 0){;
+        alert('The computer has picked Rock, You win!');
+    } else if (compSelect === 1) {;
+        alert('The computer has picked Paper too, Tie!');
+    } else if (compSelect === 2) {
+        alert('The computer has picked Scissors, You lose!');
+    };
+"
+    >
+      Paper
+    </button>
+    <button
+      onclick="
+        const compSelect = Math.floor(Math.random() * 3);
+        if (compSelect === 0){;
+        alert('The computer has picked Rock, You lose!');
+    } else if (compSelect === 1) {;
+        alert('The computer has picked Paper, You win!');
+    } else if (compSelect === 2) {
+        alert('The computer has picked Scissors too, Tie!');
+    };
+"
+    >
+      Scissors
+    </button>
+    <script></script>
+  </body>
+</html>
