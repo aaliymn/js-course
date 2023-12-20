@@ -93,18 +93,11 @@
         }
 
         localStorage.setItem("score", JSON.stringify(score));
-        updateScore();
+
         document.querySelector(
           ".js-score"
         ).innerText = `You picked ${playerMove}, the computer picked ${computerMove}, ${result}.
                  Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
-
-        /*         alert(
-               `You picked ${playerMove}, the computer picked ${computerMove}, ${result}.
-                 Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`
-             );
-      */ console.log(computerMove);
-        console.log(result);
       }
       function pickComputerMove() {
         let computerMove = "";
