@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .shop-btn {
+        border: 3px black solid;
+      }
+      .addcart {
+        background-color: yellow;
+      }
+      .buy {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <p>MONITOR</p>
+    <p>Price: $7.99</p>
+    <button onclick="alert('added to cart')" class="shop-btn addcart">
+      Add to cart
+    </button>
+    <button
+      onclick="
+    console.log('Loading');
+    alert('Purchased');
+    "
+      class="shop-btn buy"
+    >
+      Buy now
+    </button>
+  </body>
+</html>
