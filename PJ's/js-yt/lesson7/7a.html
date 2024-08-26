@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fucntiones</title>
+  </head>
+  <body>
+    <script>
+      function greet(name) {
+        if (!name) {
+          alert("Hello there!");
+        } else {
+          alert(`Hello! ${name}`);
+        }
+      }
+      function toFahrenheit(celcius) {
+        let fahrenheit = (celcius * 9) / 5 + 32;
+        alert(`${fahrenheit}`);
+      }
+      function toCelcius(fahrenheit) {
+        let celcius = ((fahrenheit - 32) * 5) / 9;
+        alert(`${celcius}`);
+      }
+      function convertTemp(degree, unit) {
+        function toFahrenheit(degree) {
+          let fahrenheit = (degree * 9) / 5 + 32;
+          alert(`${fahrenheit}`);
+        }
+
+        function toCelcius(degree) {
+          let celcius = ((degree - 32) * 5) / 9;
+          alert(`${celcius}`);
+        }
+
+        if (unit === "F") {
+          toCelcius(degree);
+        } else {
+          toFahrenheit(degree);
+        }
+      }
+      function convertLenth(length, from, to) {
+        if (from === "km" && to === "m") {
+          return `${length / 1.6} miles`;
+        } else if (from === "m" && to === "ft") {
+          return `${length * 5280} feet`;
+        } else if (from === "km" && to === "ft") {
+          return `${length * 3281} feet`;
+        } else if (from !== "km" && from !== "m" && from !== "ft") {
+          return `Invalid unit: ${from}`;
+        } else if (to !== "km" && to !== "m" && to !== "ft") {
+          return `Invalid unit: ${to}`;
+        } else {
+          return `${length * 1.6} km`;
+        }
+      }
+    </script>
+  </body>
+</html>

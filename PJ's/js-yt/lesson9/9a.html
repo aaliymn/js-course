@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>button1</button>
+    <button class="btn2">button2</button>
+    <button
+      class="heads"
+      onclick="
+    buttonResult('heads')
+    "
+    >
+      heads
+    </button>
+    <button
+      class="tails"
+      onclick="
+    buttonResult('tails')
+    "
+    >
+      tails
+    </button>
+    <p></p>
+    <input type="text" placeholder="your name" id="nameinput" />
+    <button
+      type="submit"
+      onclick="
+    document.querySelector('.name').innerText = `Your name is: ${document.querySelector('#nameinput').value}`
+    "
+    >
+      submit
+    </button>
+    <p class="name">Your name is:</p>
+    <script>
+      console.log(document.querySelector("button"));
+      console.log(document.querySelector(".btn2"));
+      document.querySelector(".btn2").innerText = "changed";
+      function buttonResult(value) {
+        document.querySelector("p").innerText = `You choose: ${value}`;
+      }
+    </script>
+  </body>
+</html>
