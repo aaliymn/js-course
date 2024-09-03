@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Projects</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .calcBtn {
+        background-color: green;
+        border: none;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <p>YouTube Subscribe Button</p>
@@ -26,13 +36,15 @@
       type="text"
     />
     <button
+      class="calcBtn"
       onclick="
     calculateCost()
     "
     >
       Calculate
     </button>
-    <p class="js-total">KeyUp:</p>
+
+    <p class="js-total">Total Cost:</p>
 
     <input
       type="text"
@@ -62,9 +74,14 @@
         const inputElement = document.querySelector(".js-input");
         const cost = Number(inputElement.value) * 100;
         const totalElement = document.querySelector(".js-total");
-        if (cost < 4000) {
+        if (cost <= 0) {
+          totalElement.classList.add("error");
+          totalElement.innerText = "Error: cost cannot be less than $0";
+        } else if (cost < 4000) {
+          totalElement.classList.remove("error");
           totalElement.innerText = `Total Cost: $${(cost + 1000) / 100}`;
         } else {
+          totalElement.classList.remove("error");
           totalElement.innerText = `Total Cost: $${cost / 100}`;
         }
       }

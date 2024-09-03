@@ -1,0 +1,31 @@
+* {
+    font-size: large;
+  }
+  .amazon {
+    margin: 20px;
+    padding: 5px 50px;
+    background-color: rgb(255, 216, 20);
+    border: none;
+    border-radius: 50px;
+  }
+  .uber {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+  .req {
+    background-color: black;
+    color: white;
+  }
+  .on {
+    background-color: black;
+    color: white;
+  }
+  .off {
+    background-color: rgb(222, 222, 222);
+    color: black;
+  }
+  button {
+    cursor: pointer;
+  }
