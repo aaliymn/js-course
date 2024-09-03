@@ -25,11 +25,22 @@
       tails
     </button>
     <p></p>
-    <input type="text" placeholder="your name" id="nameinput" />
+    <input
+      type="text"
+      placeholder="your name"
+      id="nameinput"
+      onkeydown="
+    if (event.key === 'Enter') {
+/*       document.querySelector('.name').innerText = `Your name is: ${document.querySelector('#nameinput').value}` */
+      displayName()
+    }
+    "
+    />
     <button
       type="submit"
       onclick="
-    document.querySelector('.name').innerText = `Your name is: ${document.querySelector('#nameinput').value}`
+/*     document.querySelector('.name').innerText = `Your name is: ${document.querySelector('#nameinput').value}` */
+    displayName();
     "
     >
       submit
@@ -41,6 +52,11 @@
       document.querySelector(".btn2").innerText = "changed";
       function buttonResult(value) {
         document.querySelector("p").innerText = `You choose: ${value}`;
+      }
+      function displayName() {
+        document.querySelector(".name").innerText = `Your name is: ${
+          document.querySelector("#nameinput").value
+        }`;
       }
     </script>
   </body>
