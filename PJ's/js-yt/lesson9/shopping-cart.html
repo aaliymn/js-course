@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart Demo</title>
+  </head>
+  <body>
+    <h1>Shopping Cart</h1>
+    <button
+      onclick="
+console.log(cartQuantity);
+"
+    >
+      Show Cart
+    </button>
+    <button
+      onclick="
+updateCart(1)"
+    >
+      Add item
+    </button>
+    <button
+      onclick="
+updateCart(2)"
+    >
+      Add 2
+    </button>
+    <button
+      onclick="
+updateCart(3)"
+    >
+      Add 3
+    </button>
+    <button
+      onclick="
+updateCart(-1)"
+    >
+      Remove from Cart
+    </button>
+    <button
+      onclick="
+updateCart(-2)"
+    >
+      Remove 2
+    </button>
+    <button
+      onclick="            
+updateCart(-3)"
+    >
+      Remove 3
+    </button>
+
+    <button
+      onclick="
+if (cartQuantity === 0) {
+console.log('The cart is empty!');
+} else {
+  cartQuantity = 0;
+  document.querySelector(
+          '.js-quantity'
+        ).innerText = `Cart quantity: ${cartQuantity}`;
+  localStorage.setItem('quantity', cartQuantity);
+  console.log(`Cart quantity: ${cartQuantity}`);
+}"
+    >
+      Reset Cart
+    </button>
+    <p class="js-quantity"></p>
+    <script>
+      let cartQuantity = Number(localStorage.getItem("quantity")) || 0;
+      const maxQuantity = 10;
+      document.querySelector(
+        ".js-quantity"
+      ).innerText = `Cart quantity: ${cartQuantity}`;
+      function updateCart(change) {
+        if (cartQuantity + change > 10) {
+          alert("The cart is full!");
+          return;
+        }
+
+        if (cartQuantity + change < 0) {
+          alert("Not enough items in the cart");
+          return;
+        }
+
+        cartQuantity += change;
+        document.querySelector(
+          ".js-quantity"
+        ).innerText = `Cart quantity: ${cartQuantity}`;
+        localStorage.setItem("quantity", cartQuantity);
+        console.log(localStorage.getItem("quantity"));
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+    </script>
+  </body>
+</html>

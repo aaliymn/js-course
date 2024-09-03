@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Projects</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button
+      onclick="
+      subscribe()
+    "
+      class="js-sub-button"
+    >
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input
+      onkeydown="
+      inputKeydown(event)
+"
+      class="js-input"
+      placeholder="Cost of order"
+      type="text"
+    />
+    <button
+      onclick="
+    calculateCost()
+    "
+    >
+      Calculate
+    </button>
+    <p class="js-total">Total Cost:</p>
+
+    <input
+      type="text"
+      placeholder="write here"
+      class="keyupInput"
+      onkeyup="
+    const inputBox = document.querySelector('.keyupInput');
+    document.querySelector('.keyupText').innerText = inputBox.value
+    "
+    />
+    <p class="keyupText"></p>
+    <script>
+      function inputKeydown(event) {
+        if (event.key == "Enter") {
+          calculateCost();
+        }
+      }
+      function subscribe() {
+        const buttonElement = document.querySelector(".js-sub-button");
+        if (buttonElement.innerText === "Subscribe") {
+          buttonElement.innerText = "Subscribed";
+        } else {
+          buttonElement.innerText = "Subscribe";
+        }
+      }
+      function calculateCost() {
+        const inputElement = document.querySelector(".js-input");
+        const cost = Number(inputElement.value) * 100;
+        const totalElement = document.querySelector(".js-total");
+        if (cost < 4000) {
+          totalElement.innerText = `Total Cost: $${(cost + 1000) / 100}`;
+        } else {
+          totalElement.innerText = `Total Cost: $${cost / 100}`;
+        }
+      }
+    </script>
+  </body>
+</html>
