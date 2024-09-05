@@ -50,6 +50,32 @@
         }
       }
       console.log(minMaxnull([3, 3]));
+
+      function countWords(words) {
+        /* Result object */
+        const result = {};
+        /*         debug
+console.log(words);
+        console.log(result); */
+        /* Look for each string */
+        for (i = 0; i < words.length; i++) {
+          /* Currently picked string */
+          const currentVal = words[i];
+          /* If it doesn't exist in result object, add it with value of 1 */
+          if (!result[currentVal]) {
+            result[currentVal] = 1;
+            /* If it does exist, increment it's value */
+          } else {
+            result[currentVal]++;
+          }
+          /*debug
+console.log(result); */
+        }
+        return result;
+      }
+      console.log(
+        countWords(["apple", "apple", "pogaca", "kek", "cay", "cay", "cay"])
+      );
     </script>
   </body>
 </html>
