@@ -25,6 +25,31 @@
         return result;
       }
       console.log(minMax([1, 5, 7, -5, 99, 8, 3]));
+      function minMaxnull(nums) {
+        const result = {
+          min: nums[0],
+          max: nums[0],
+        };
+        if (result.min === undefined && result.max === undefined) {
+          return "ERROR: Please input at least 1 value";
+        }
+        for (let i = 0; i < nums.length; i++) {
+          // Corrected "lenght" to "length"
+          const value = nums[i];
+          if (value < result.min) {
+            result.min = value;
+          }
+          if (value > result.max) {
+            result.max = value;
+          }
+        }
+        if (result.min == result.max) {
+          return "ERROR: Please input at least 2 different values.";
+        } else {
+          return result;
+        }
+      }
+      console.log(minMaxnull([3, 3]));
     </script>
   </body>
 </html>
