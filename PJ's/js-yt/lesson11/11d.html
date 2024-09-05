@@ -35,6 +35,37 @@
         console.log(`Input: ${inputArray}`);
         console.log(`Double: ${dbArray}`);
       }
+      function moreIt(array, numer) {
+        const inputArray = array;
+        const dbArray = [];
+        for (i = 0; i < inputArray.length; i++) {
+          dbArray.push(inputArray[i] * numer);
+        }
+        console.log(`Input: ${inputArray}`);
+        console.log(`${numer} Times: ${dbArray}`);
+      }
+      function addArray(array1, array2) {
+        const inputArray1 = array1;
+        const inputArray2 = array2;
+        const addedArray = [];
+        for (i = 0; i < inputArray1.length; i++) {
+          addedArray.push(inputArray1[i] + inputArray2[i]);
+        }
+        console.log(`
+        Input1: ${inputArray1}
+        Input2: ${inputArray2}
+        Added: ${addedArray}`);
+      }
+      function countPositive(nums) {
+        const inputArray = nums;
+        let positiveAmount = 0;
+        for (i = 0; i < inputArray.length; i++) {
+          if (inputArray[i] % 2 == 0) {
+            positiveAmount++;
+          }
+        }
+        console.log(positiveAmount);
+      }
     </script>
   </body>
 </html>
