@@ -39,9 +39,11 @@ console.log(stringArray[i]);
       function findIndex(array, word) {
         for (i = 0; i < array.length; i++) {
           const value = array[i];
+          /* if wanted word exists in array, stop*/
           if (value === word) {
             return `The '${word}' is at ${i}`;
           }
+          /* if AT THE END word doesn't exist, return */
           if (i <= array.length && value !== word) {
             return "does not exist";
           }
