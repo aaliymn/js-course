@@ -25,6 +25,16 @@
       }
       console.log(origArray);
       console.log(doubleArray);
+
+      function doubleIt(array) {
+        const inputArray = array;
+        const dbArray = [];
+        for (i = 0; i < inputArray.length; i++) {
+          dbArray.push(inputArray[i] * 2);
+        }
+        console.log(`Input: ${inputArray}`);
+        console.log(`Double: ${dbArray}`);
+      }
     </script>
   </body>
 </html>
