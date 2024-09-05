@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11-O</title>
+  </head>
+  <body>
+    <script>
+      /* Array of strings */
+      stringArray = ["dog", "seaarch", "search", "play"];
+      let found = false;
+      /* 
+debug 
+console.log(stringArray);
+*/
+      /* Loop through the array */
+      for (i = 0; i < stringArray.length; i++) {
+        /*
+debug
+console.log(stringArray[i]);
+*/
+        /* Current pick of string */
+        const str = stringArray[i];
+        /* If current pick = 'search', console log index number */
+        if (str === "search") {
+          console.log(`Search is at ${i}`);
+          /* log the found status */
+          found = true;
+          /* stop the loop, only first appearance needed */
+          break;
+        }
+      }
+      /* if not found, error */
+      if (!found) {
+        console.log(-1);
+      }
+
+      function findIndex(array, word) {
+        for (i = 0; i < array.length; i++) {
+          const value = array[i];
+          if (value === word) {
+            return `The '${word}' is at ${i}`;
+          }
+          if (i <= array.length && value !== word) {
+            return "does not exist";
+          }
+        }
+      }
+      console.log(findIndex(["cay", "kek", "pogaca"], "keek"));
+    </script>
+  </body>
+</html>
