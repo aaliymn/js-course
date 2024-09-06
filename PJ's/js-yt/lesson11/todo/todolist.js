@@ -1,4 +1,7 @@
-let listItems = [{ name: "kek", date: "2024-09-13" }];
+let listItems = JSON.parse(localStorage.getItem("listItems")) || [
+  { name: "kek", date: "08/28/2002" },
+  { name: "kek2", date: "08/28/2002" },
+];
 const submitBtn = document.querySelector(".js-submit");
 const textInput = document.querySelector(".js-text-input");
 const dateInput = document.querySelector(".js-date-input");
@@ -17,6 +20,7 @@ function renderList() {
     <div>${todo.date}</div>
     <button class="js-delete" onclick="
     listItems.splice(${i}, 1);
+    saveToLocal();
     renderList();">Delete</button>`;
     listHTML += html; // create html
     console.log(todo);
@@ -30,12 +34,17 @@ function addToList() {
   if (currentInput && dateInput) {
     // Check if text box is not empy
     listItems.push({ name: currentInput, date: currentDate }); // Add current input to the items array.
+    saveToLocal();
     textInput.value = ""; // Clear input box
+    dateInput.value = ""; // Clear date input box
     renderList();
   } else {
     console.log("err: fields can not be left empty");
     alert("err: fields can not be left empty");
   }
+}
+function saveToLocal() {
+  localStorage.setItem("listItems", JSON.stringify(listItems));
 }
 
 submitBtn.onclick = addToList;
