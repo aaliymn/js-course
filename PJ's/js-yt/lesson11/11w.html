@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11W</title>
+  </head>
+  <body>
+    <script>
+      function makeUniq(array) {
+        let strings = {};
+        const uniq = [];
+        for (i = 0; i < array.length; i++) {
+          const value = array[i];
+          if (!strings[value]) {
+            strings[value] = 1;
+            uniq.push(value);
+          } else {
+            strings[value]++;
+            continue;
+          }
+        }
+        return uniq;
+      }
+      console.log(
+        makeUniq([
+          "ali",
+          "ali",
+          "ali",
+          "ayse",
+          "ayse",
+          "ayse",
+          "zeynep",
+          "zeynep",
+          "zeynep",
+          "zeynep",
+        ])
+      );
+    </script>
+  </body>
+</html>

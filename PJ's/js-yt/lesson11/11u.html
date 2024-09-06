@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11-U</title>
+  </head>
+  <body>
+    <script>
+      function removeEgg(foods) {
+        const removedArray = [];
+        let removedEggs = 0;
+        for (i = 0; i < foods.length; i++) {
+          if (foods[i] === "egg" && removedEggs < 2) {
+            removedEggs++;
+            continue;
+          } else {
+            removedArray.push(foods[i]);
+          }
+        }
+        console.log(removedArray);
+      }
+      removeEgg([
+        "apple",
+        "juice",
+        "egg",
+        "cay",
+        "egg",
+        "juice",
+        "egg",
+        "cay",
+        "egg",
+      ]);
+      function removeLastEgg(foods) {
+        const reverseFoods = foods.reverse();
+        const removedArray = [];
+        let removedEggs = 0;
+        for (i = 0; i < reverseFoods.length; i++) {
+          if (reverseFoods[i] === "egg" && removedEggs < 2) {
+            removedEggs++;
+            continue;
+          } else {
+            removedArray.push(reverseFoods[i]);
+          }
+        }
+        console.log(foods);
+        console.log(removedArray.reverse());
+      }
+      removeLastEgg([
+        "apple",
+        "juice",
+        "egg",
+        "cay",
+        "egg",
+        "juice",
+        "egg",
+        "cay",
+        "egg",
+      ]);
+    </script>
+  </body>
+</html>
