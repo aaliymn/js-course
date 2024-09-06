@@ -12,11 +12,12 @@ function renderList() {
   for (let i = 0; i < listItems.length; i++) {
     //HTML for each item
     const todo = listItems[i];
-    const html = `<p>
-    ${todo.name}, ${todo.date}
-    <button onclick="
+    const html = `
+    <div>${todo.name}</div>
+    <div>${todo.date}</div>
+    <button class="js-delete" onclick="
     listItems.splice(${i}, 1);
-    renderList();">Delete</button></p>`;
+    renderList();">Delete</button>`;
     listHTML += html; // create html
     console.log(todo);
     console.log(listHTML);

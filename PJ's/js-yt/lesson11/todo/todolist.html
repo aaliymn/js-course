@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do</title>
+    <link rel="stylesheet" href="todolist.css" />
   </head>
   <body>
     <p>Todo List</p>
-    <input class="js-text-input" type="text" placeholder="placeholder" />
-    <input class="js-date-input" type="date" />
-    <button class="js-submit">submit</button>
-    <div class="js-todo-list">Items will display here.</div>
+    <div class="todo-input-grid">
+      <input class="js-text-input" type="text" placeholder="Todo Name" />
+      <input class="js-date-input" type="date" />
+      <button class="js-submit">Add</button>
+    </div>
+    <div class="js-todo-list todo-grid"></div>
     <script src="todolist.js"></script>
   </body>
 </html>
