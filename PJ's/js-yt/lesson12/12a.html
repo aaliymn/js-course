@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+  </head>
+  <body style="background-color: gray">
+    <p><button onclick="toFinish()" class="js-button1">Start</button></p>
+    <button onclick="addToCart()" class="js-button2">Add to cart</button>
+    <p class="js-cart-message"></p>
+    <script>
+      let timeoutId;
+      const startBtn = document.querySelector(".js-button1");
+      const cartBtn = document.querySelector(".js-button2");
+      const cartMsg = document.querySelector(".js-cart-message");
+      function toFinish() {
+        startBtn.innerText = "Loading...";
+        setTimeout(function () {
+          startBtn.innerText = "Finished";
+        }, 1000);
+      }
+      function addToCart() {
+        cartMsg.innerText = "Added";
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function () {
+          cartMsg.innerText = "";
+        }, 4000);
+        document.title = "DONE";
+      }
+
+      const add = function () {
+        console.log(2 + 3);
+      };
+      add();
+      add();
+      function runTwice(func) {
+        func();
+        func();
+      }
+      runTwice(add);
+    </script>
+  </body>
+</html>
