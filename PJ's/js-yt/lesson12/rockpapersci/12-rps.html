@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors!</title>
+    <link rel="stylesheet" href="./12-rps.css" />
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <button
+      onclick="
+            playGame('rock');
+            "
+    >
+      Rock
+    </button>
+    <button
+      onclick="
+            playGame('paper');
+            "
+    >
+      Paper
+    </button>
+    <button
+      onclick="
+            playGame('scissors');
+            "
+    >
+      Scissors
+    </button>
+    <p class="js-score"></p>
+    <button
+      onclick="
+            score.losses = 0;
+            score.ties = 0;
+            score.wins = 0;
+            localStorage.removeItem('score')
+            updateScore()
+            "
+    >
+      Reset Score
+    </button>
+    <button class="js-auto-play" onclick="autoPlay()">Auto Play</button>
+    <script src="./12-rps.js"></script>
+  </body>
+</html>
