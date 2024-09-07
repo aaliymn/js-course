@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messaging App</title>
+  </head>
+  <body style="background-color: darkslategrey">
+    <button onclick="messageAmount('add')" class="js-add-btn">Add</button>
+    <button onclick="messageAmount('remv')" class="js-remove-btn">
+      Remove
+    </button>
+    <script>
+      let messages = 0;
+      const btnAdd = document.querySelector(".js-add-btn");
+      const btnRemv = document.querySelector(".js-remove-btn");
+
+      function messageAmount(parm) {
+        if (parm === "add") {
+          messages++;
+        } else if (parm === "remv" && messages != 0) {
+          messages--;
+        } else {
+          alert("Already 0");
+        }
+      }
+      titleEverySec();
+      function titleEverySec() {
+        setInterval(function () {
+          if (messages != 0) {
+            if (document.title === "Messaging App") {
+              document.title = `(${messages}) New Messages`;
+            } else {
+              document.title = "Messaging App";
+            }
+          } else {
+            document.title = "Messaging App";
+          }
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
