@@ -25,11 +25,11 @@
         clearTimeout(timeoutId);
         timeoutId = setTimeout(function () {
           cartMsg.innerText = "";
-        }, 4000);
+        }, 1500);
         document.title = "DONE";
       }
 
-      const add = function () {
+      /*       const add = function () {
         console.log(2 + 3);
       };
       add();
@@ -39,6 +39,23 @@
         func();
       }
       runTwice(add);
+      const object1 = {
+        num: 2,
+        fun: function() {
+          console.log('Hello World');
+        }
+      }
+      object1.fun();
+      function display(param) {
+        console.log(param);
+      }
+      display(2)
+      function run(param) {
+        param();
+      }
+      run(function(){
+        console.log('Hello 4')
+      }) */
     </script>
   </body>
 </html>
