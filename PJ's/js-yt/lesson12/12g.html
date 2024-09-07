@@ -27,7 +27,7 @@
       titleEverySec();
       function titleEverySec() {
         setInterval(function () {
-          if (messages != 0) {
+          if (messages > 0) {
             if (document.title === "Messaging App") {
               document.title = `(${messages}) New Messages`;
             } else {
