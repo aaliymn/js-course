@@ -1,6 +1,10 @@
 let score = JSON.parse(localStorage.getItem("score"));
 const autoPlayBtn = document.querySelector(".js-auto-play");
 const scoreText = document.querySelector(".js-score");
+const rockButton = document.querySelector(".js-rock-button");
+const paperButton = document.querySelector(".js-paper-button");
+const scissorsButton = document.querySelector(".js-scissors-button");
+
 if (score === null) {
   score = {
     wins: 0,
@@ -54,7 +58,7 @@ function playGame(playerMove) {
   localStorage.setItem("score", JSON.stringify(score));
 
   scoreText.innerText = `You picked ${playerMove}, the computer picked ${computerMove}, ${result}.
-                 Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+                  Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
 }
 function pickComputerMove() {
   let computerMove = "";
@@ -68,64 +72,42 @@ function pickComputerMove() {
   }
   return computerMove;
 }
-function pickAutoMove() {
-  let autoMove = "";
-  const autoSelect = Math.floor(Math.random() * 3);
-  if (autoSelect === 0) {
-    autoMove = "rock";
-  } else if (autoSelect === 1) {
-    autoMove = "paper";
-  } else if (autoSelect === 2) {
-    autoMove = "scissors";
-  }
-  return autoMove;
-}
+
+let isAutoPlaying = false;
+let intervalID;
+
 function autoPlay() {
-  /*     if (autoPlayBtn.innerText === 'Stop') {
-
-    } */
-  autoPlayBtn.innerText = "Stop";
-
-  intervalID = setInterval(function () {
-    const autoMove = pickAutoMove();
-    const computerMove = pickComputerMove();
-    console.log(autoMove);
-    console.log(computerMove);
-    let intervalID;
-    let result = "";
-    if (autoMove === "scissors") {
-      if (computerMove === "rock") {
-        result = "Comp1 Wins";
-      } else if (computerMove === "paper") {
-        result = "Comp2 Wins";
-      } else if (computerMove === "scissors") {
-        result = "Tie";
-      }
-    } else if (autoMove === "paper") {
-      if (computerMove === "rock") {
-        result = "Comp2 Wins";
-      } else if (computerMove === "paper") {
-        result = "Tie";
-      } else {
-        result = "Comp1 Wins";
-      }
-    } else if (autoMove === "rock") {
-      if (computerMove === "rock") {
-        result = "Tie";
-      } else if (computerMove === "paper") {
-        result = "Comp1 Wins";
-      } else {
-        result = "Comp2 Wins";
-      }
-    }
-    if (result === "Comp2 Wins") {
-      score.wins++;
-    } else if (result === "Comp1 Wins") {
-      score.losses++;
-    } else if (result === "Tie") {
-      score.ties++;
-    }
-    scoreText.innerText = `Computer 2 picked ${autoMove}, Computer 1 picked ${computerMove}, ${result}.
-    Computer 2 Wins: ${score.wins} Computer 1 Wins: ${score.losses} Ties: ${score.ties}`;
-  }, 1000);
+  if (!isAutoPlaying) {
+    autoPlayBtn.innerText = "Stop";
+    intervalID = setInterval(function () {
+      const playerMove = pickComputerMove();
+      playGame(playerMove);
+    }, 1000);
+    isAutoPlaying = true;
+  } else {
+    autoPlayBtn.innerText = "Auto Play";
+    isAutoPlaying = false;
+    clearInterval(intervalID);
+  }
 }
+rockButton.addEventListener("click", () => {
+  playGame("rock");
+});
+paperButton.addEventListener("click", () => {
+  playGame("paper");
+});
+scissorsButton.addEventListener("click", () => {
+  playGame("scissors");
+});
+autoPlayBtn.addEventListener("click", () => {
+  autoPlay();
+});
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    playGame("rock");
+  } else if (event.key === "p") {
+    playGame("paper");
+  } else if (event.key === "s") {
+    playGame("scissors");
+  }
+});
