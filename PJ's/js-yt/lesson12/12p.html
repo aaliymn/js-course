@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Function Part 9</title>
+  </head>
+  <body style="background-color: darkslategrey">
+    <button class="js-button1">Click Me</button>
+    <button class="js-cartbtn">Add to Cart</button>
+    <button class="js-add">Add</button>
+    <button class="js-remove">Remove</button>
+    <p class="js-msg"></p>
+    <script>
+      let timeoutId;
+      let messages = 0;
+      const button1 = document.querySelector(".js-button1");
+      const button2 = document.querySelector(".js-cartbtn");
+      const cartMsg = document.querySelector(".js-msg");
+      const addBtn = document.querySelector(".js-add");
+      const remBtn = document.querySelector(".js-remove");
+      function addToCart() {
+        cartMsg.innerText = "Added";
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          cartMsg.innerText = "";
+        }, 2000);
+      }
+      function updateButton() {
+        button1.innerText = "Loading";
+        setTimeout(() => {
+          button1.innerText = "Finished";
+        }, 1000);
+      }
+
+      setInterval(() => {
+        if (document.title != messages + " NO" && messages !== 0) {
+          document.title = messages + " NO";
+        } else {
+          document.title = "Advanced Function Part 9";
+        }
+      }, 1500);
+
+      function messageEditor(value) {
+        if (value === "add") {
+          messages++;
+          console.log(messages);
+        } else if (value !== "add" && messages != 0) {
+          messages--;
+          console.log(messages);
+        } else {
+          alert("cant remove anymore :(");
+          console.log(messages);
+        }
+      }
+      button1.addEventListener("click", updateButton);
+      button2.addEventListener("click", addToCart);
+      addBtn.addEventListener("click", () => {
+        messageEditor("add");
+      });
+      remBtn.addEventListener("click", messageEditor);
+    </script>
+  </body>
+</html>

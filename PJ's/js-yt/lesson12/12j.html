@@ -3,14 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced Function</title>
+    <title>Advanced Function Part 8</title>
   </head>
   <body style="background-color: darkslategrey">
     <script>
-      function multiply(num1, num2) {
+      /* function multiply(num1, num2) {
         return num1 * num2;
       }
       console.log(multiply(12, 2));
+      const multiply2 = (a, b) => a * b;
+      console.log(multiply2(14, 2)); */
+      function countPositive(nums) {
+        let isPositive = 0;
+        nums.forEach((value) => {
+          if (value >= 0) {
+            isPositive++;
+          }
+        });
+        return isPositive;
+      }
+      console.log(countPositive([0, 1, 2, -5, 4, -8, -9]));
+
+      function addNum(array, num) {
+        return array.map((value) => value + 10);
+      }
+      console.log(addNum([5, 3], 5));
+
+      function removeCay(food) {
+        return food.filter((value) => value !== "cay");
+      }
+      console.log(removeCay(["cay", "kek", "cay", "pasta"]));
+
+      function removeCay2(food) {
+        let cayRemoved = 0;
+        return food.filter((value) => {
+          if (value === "cay" && cayRemoved < 2) {
+            cayRemoved++;
+            return false;
+          }
+          return true;
+        });
+      }
+      console.log(
+        removeCay2(["cay", "kek", "cay", "pasta", "cay", "degil", "cay"])
+      );
     </script>
   </body>
 </html>
