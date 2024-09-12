@@ -32,44 +32,46 @@ function updateScore() {
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let result = "";
-  if (playerMove === "scissors") {
+  if (playerMove === computerMove) {
+    result = "Tie";
+    score.ties++;
+  } else if (playerMove === "scissors") {
     if (computerMove === "rock") {
       result = "You lose";
+      score.losses++;
     } else if (computerMove === "paper") {
       result = "You win";
-    } else if (computerMove === "scissors") {
-      result = "Tie";
+      score.wins++;
     }
   } else if (playerMove === "paper") {
     if (computerMove === "rock") {
       result = "You win";
-    } else if (computerMove === "paper") {
-      result = "Tie";
+      score.wins++;
     } else {
       result = "You lose";
+      score.losses++;
     }
   } else if (playerMove === "rock") {
-    if (computerMove === "rock") {
-      result = "Tie";
-    } else if (computerMove === "paper") {
+    if (computerMove === "paper") {
       result = "You lose";
+      score.losses++;
     } else {
       result = "You win";
+      score.wins++;
     }
-  }
-
-  if (result === "You win") {
-    score.wins++;
-  } else if (result === "You lose") {
-    score.losses++;
-  } else if (result === "Tie") {
-    score.ties++;
   }
 
   localStorage.setItem("score", JSON.stringify(score));
 
-  scoreText.innerText = `You picked ${playerMove}, the computer picked ${computerMove}, ${result}.
+  if (isAutoPlaying) {
+    scoreText.innerText = `Bot 1 picked ${playerMove}, Bot 2 picked ${computerMove}.
+                  Bot 1 Wins: ${score.wins}
+                  Bot 2 Wins: ${score.losses}
+                  Ties: ${score.ties}`;
+  } else {
+    scoreText.innerText = `You picked ${playerMove}, the computer picked ${computerMove}, ${result}.
                   Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+  }
 }
 function pickComputerMove() {
   let computerMove = "";
