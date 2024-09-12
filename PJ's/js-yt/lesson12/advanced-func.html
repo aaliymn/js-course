@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <button
+      class="js-button"
+      onclick="
+      
+      "
+    >
+      Click
+    </button>
+
+    <script>
+      /* const buttonElement = document.querySelector(".js-button");
+      const eventListener = () => {
+        alert("clicked");
+      };
+      buttonElement.addEventListener("click", eventListener);
+      buttonElement.addEventListener("click", () => {
+        console.log("clicked2");
+      });
+      buttonElement.removeEventListener("click", eventListener); */
+      // For Each Loop
+      /*       ["make dinner", "make lunch", "make breakfast"].forEach(
+        (value, index) => {
+          if (value === "make lunch") {
+            return;
+          }
+          console.log(value, index);
+        }
+      );
+
+      // Arrow Function
+      const regularFunction = function () {
+        console.log("Regular Function");
+        return 5;
+      };
+      const arrowFunction = () => {
+        console.log("Arrow Function");
+        return 5;
+      };
+      regularFunction();
+      arrowFunction();
+
+      const oneParam = (param) => {
+        console.log(param + 1);
+      };
+      oneParam(2);
+      const oneLine = () => 2 + 3;
+      console.log(oneLine());
+
+      const object2 = {
+        method: () => {
+          
+        },
+        method() {
+
+        }
+      }; */
+
+      console.log(
+        [1, -3, 5, -5, 8, 9].filter((value, index) => {
+          /* if (value >= 0) {
+          return true;
+        } else {
+          return false;
+        } */
+          return value >= 0;
+        })
+      );
+
+      console.log(
+        [1, 3, 3].map((value, index) => {
+          return value + 20;
+        })
+      );
+      console.log([1, 3, 3].map((value) => value + 20));
+    </script>
+  </body>
+</html>

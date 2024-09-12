@@ -79,7 +79,7 @@ let intervalID;
 function autoPlay() {
   if (!isAutoPlaying) {
     autoPlayBtn.innerText = "Stop";
-    intervalID = setInterval(function () {
+    intervalID = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
