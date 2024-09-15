@@ -30,6 +30,19 @@ export function calculateCartQuantity() {
   return cartQuantity;
 }
 
+export function updateQuantity(productId, newQuantity) {
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      console.log("ITEM FOUND");
+      console.log(cartItem.quantity);
+      cartItem.quantity = newQuantity;
+      console.log(cartItem.quantity);
+    } else {
+      ("NOT FOUND");
+    }
+  });
+}
+
 export function deleteFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {
