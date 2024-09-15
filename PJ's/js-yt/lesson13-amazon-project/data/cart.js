@@ -22,6 +22,14 @@ function saveCartLocal() {
 }
 let timeoutId;
 
+export function calculateCartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  });
+  return cartQuantity;
+}
+
 export function deleteFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {

@@ -1,7 +1,8 @@
-import { cart, addToCart } from "../data/cart.js";
+import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 let productHTML = "";
 
+//Generate HTML for each product.
 products.forEach((product) => {
   productHTML += `
     <div class="product-container">
@@ -57,13 +58,13 @@ products.forEach((product) => {
 });
 document.querySelector(".js-products-grid").innerHTML = productHTML;
 
+//Update Cart Quantity amount according to amount of items i cart.
 function updateCartQuantity() {
-  let cartQuantity = 0;
-  cart.forEach((item) => {
-    cartQuantity += item.quantity;
-    document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
-  });
+  const cartQuantity = calculateCartQuantity();
+  document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
 }
+
+//Add to cart function to generator for all buttons.
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;

@@ -1,4 +1,4 @@
-import { cart, deleteFromCart } from "../data/cart.js";
+import { cart, deleteFromCart, calculateCartQuantity } from "../data/cart.js";
 import { products } from "./products.js";
 let orderSummaryHTML = "";
 updateCartQuantity();
@@ -103,11 +103,8 @@ document.querySelectorAll(".js-delete-button").forEach((deleteButton) => {
   });
 });
 function updateCartQuantity() {
-  let cartQuantity = 0;
-  cart.forEach((item) => {
-    cartQuantity += item.quantity;
-    document.querySelector(".js-checkout-middle-section").innerHTML = `
+  const cartQuantity = calculateCartQuantity();
+  document.querySelector(".js-checkout-middle-section").innerHTML = `
           Checkout (<a class="return-to-home-link" href="amazon.html">${cartQuantity} items</a
           >)`;
-  });
 }
