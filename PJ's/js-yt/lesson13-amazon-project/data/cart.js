@@ -17,7 +17,7 @@ if (!cart) {
   ];
 }
 
-function saveCartLocal() {
+export function saveCartLocal() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 let timeoutId;
@@ -33,14 +33,10 @@ export function calculateCartQuantity() {
 export function updateQuantity(productId, newQuantity) {
   cart.forEach((cartItem) => {
     if (productId === cartItem.productId) {
-      console.log("ITEM FOUND");
-      console.log(cartItem.quantity);
       cartItem.quantity = newQuantity;
-      console.log(cartItem.quantity);
-    } else {
-      ("NOT FOUND");
     }
   });
+  saveCartLocal();
 }
 
 export function deleteFromCart(productId) {
